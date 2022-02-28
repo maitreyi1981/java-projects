@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;HelloController.java&apos; to &apos;movie-catalog-service/src/main/java/com.maitreyi.movie.moviecatalogservice&apos;&#x0D;&#x0A;- Original project: &apos;maitreyiartefact&apos;&#x0D;&#x0A;- Destination element: &apos;movie-catalog-service/src/main/java/com.maitreyi.movie.moviecatalogservice&apos;&#x0D;&#x0A;- Original element: &apos;maitreyiartefact.HelloController.java&apos;" description="Copy compilation unit" destination="=movie-catalog-service/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.maitreyi.movie.moviecatalogservice" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;maitreyiartefact{HelloController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1635125338366" units="1" version="1.0"/>
+</session>

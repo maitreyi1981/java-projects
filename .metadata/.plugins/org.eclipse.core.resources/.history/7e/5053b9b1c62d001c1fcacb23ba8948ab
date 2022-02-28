@@ -1,0 +1,30 @@
+package maitreyiartefact.topic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TopicController {
+	
+	@RequestMapping("/topics")
+	public List<Topic> getAllTopics()
+	{
+		List<Topic> topicArray=Arrays.asList(
+				
+				new Topic(1, "Core Java", "This is Java 1.8"),
+				new Topic(1, "SpringBoot", "This is Springboot"),
+				new Topic(1, "Microservices", "This is Microservices"),
+				new Topic(1, "MongoDB", "This is mongoDB")
+				
+				);
+		
+		return topicArray;
+		
+	}
+	
+	
+
+}

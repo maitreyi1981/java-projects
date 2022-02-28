@@ -1,0 +1,12 @@
+package maitreyiartefact;
+
+
+@SpringBootApplication
+public class CourseAPIApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

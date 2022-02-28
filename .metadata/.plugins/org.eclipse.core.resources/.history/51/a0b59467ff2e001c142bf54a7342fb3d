@@ -1,0 +1,36 @@
+package maitreyiartefact.topic;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class TopicService {
+	
+	private List<Topic> topicArray=new List<Topic>(Arrays.asList(
+			
+			new Topic(1, "Core Java", "This is Java 1.8"),
+			new Topic(2, "SpringBoot", "This is Springboot"),
+			new Topic(3, "Microservices", "This is Microservices"),
+			new Topic(4, "MongoDB", "This is mongoDB"),
+			new Topic(5, "CI/CD", "This is CI/CD")
+			));
+	
+	public List<Topic> getAllTopics()
+	{
+		return topicArray;
+	}
+	
+	public Topic getTopic (int id)
+	{
+		return topicArray.stream().filter(t->t.getTopicId().equals(id)).findFirst().get();
+	}
+	
+	public void addTopic(Topic topic)
+	{
+		
+	}
+
+}

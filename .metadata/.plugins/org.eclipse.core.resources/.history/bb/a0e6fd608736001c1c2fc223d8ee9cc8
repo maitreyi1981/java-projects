@@ -1,0 +1,62 @@
+package com.maitreyi.movie.moviecatalogservice.contollers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.maitreyi.movie.moviecatalogservice.moviecatalog.*;
+
+
+
+@RestController
+@RequestMapping("/catalog")
+public class MovieCatalogController {
+	
+
+	
+	@RequestMapping ("/singleMovie/{userId}")
+	public MovieCatalog getMovieCatalog(@PathVariable("userId") int  userId)
+	{
+		System.out.println("inside catalog single movie controller");
+		 
+		RestTemplate restTemplate=new RestTemplate();
+		Movie movie=restTemplate.getForObject("http://localhost:8081/movieInfo/callFromCatalog/1", Movie.class);
+		return new MovieCatalog(1,movie.getMovieId(),movie.getMovieName(),movie.getMovieDescription(),4);
+	}
+	
+	@RequestMapping ("/allMovies")
+	public List<MovieCatalog> getAllMovies()
+	{
+		List<MovieCatalog> movieCatalogs=new ArrayList<MovieCatalog>();
+		List<Movie> movieList=new ArrayList<Movie>();
+		RestTemplate restTemplate=new RestTemplate();
+		ObjectMapper mapper=new ObjectMapper();
+		System.out.println("inside catalog  movies controller");
+		
+		 
+		movieList=restTemplate.getForObject("http://localhost:8081/movieInfo/movies", ArrayList.class);
+		
+		List<Movie> movieList1 = mapper.convertValue(
+				movieList,
+			    new TypeReference<List<Movie>>() { });
+		
+		movieList1.forEach(m-> 
+								{
+									System.out.println(m.getMovieName());
+									movieCatalogs.add(new MovieCatalog(1,m.getMovieId(),m.getMovieName(),m.getMovieDescription(),4));
+								}
+							);
+		    System.out.println(movieList1.size());
+		    System.out.println(movieCatalogs.size());
+		
+		return movieCatalogs;
+		
+	}
+
+}

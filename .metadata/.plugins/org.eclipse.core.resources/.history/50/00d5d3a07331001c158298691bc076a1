@@ -1,0 +1,20 @@
+package maitreyiartefact.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import maitreyiartefact.Courses.Course;
+import maitreyiartefact.topic.CourseRepository;
+
+@Service
+public class CourseService {
+	
+	@Autowired
+	private CourseRepository courseRepository;
+	
+	public void addCourse(Course newCourse)
+	{
+		courseRepository.save(newCourse);
+	}
+
+}

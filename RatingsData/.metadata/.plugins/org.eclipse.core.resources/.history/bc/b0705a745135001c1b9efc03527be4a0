@@ -1,0 +1,5 @@
+package com.maitreyi.ratingservice.ratingsdataservice.controller;
+
+public class Ratingcontroller {
+
+}

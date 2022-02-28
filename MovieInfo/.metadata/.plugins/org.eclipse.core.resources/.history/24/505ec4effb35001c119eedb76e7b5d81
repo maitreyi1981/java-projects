@@ -1,0 +1,31 @@
+package com.maitreyi.movieservice.movieinfoservice.movieController;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.maitreyi.movieservice.movieinfoservice.Movie.Movie;
+
+@RestController
+@RequestMapping ("/movieInfo")
+public class MovieController {
+
+	@RequestMapping ("/{movieId}")
+	public List<Movie> getAllMovies(@PathVariable ("movieId") int movieId)
+	{
+		System.out.println("Inside Movie Controller");
+		return Collections.singletonList(new Movie (movieId,"Transformer-2","This is a good movie-2")
+											);
+	}
+	
+	@RequestMapping ("/callFromCatalog/{movieId}")
+	public Movie getOneMovie(@PathVariable ("movieId") int movieId)
+	{
+		System.out.println("Inside callFromCatalog Movie Controller");
+		return new Movie (movieId,"Transformer-1","This is a good movie-1");
+	}
+
+}

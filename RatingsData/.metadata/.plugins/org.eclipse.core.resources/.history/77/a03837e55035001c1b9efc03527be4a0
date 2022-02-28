@@ -1,0 +1,5 @@
+package com.maitreyi.ratingservice.ratingsdataservice.rating;
+
+public class Rating {
+
+}

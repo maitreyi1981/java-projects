@@ -1,0 +1,10 @@
+package maitreyiartefact.topic;
+
+import org.springframework.data.repository.CrudRepository;
+
+import maitreyiartefact.Courses.Course;
+
+public interface CourseRepository extends CrudRepository<Course, Integer> 
+{
+
+}

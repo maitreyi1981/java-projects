@@ -1,0 +1,47 @@
+package maitreyiartefact.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import maitreyiartefact.topic.TopicJPA;
+import maitreyiartefact.topic.TopicRepository;
+
+
+@Service 
+public class TopicServiceJPA {
+	
+	private List<TopicJPA> topicArray=new ArrayList<TopicJPA>();
+	
+	@Autowired
+	private TopicRepository topicRepository;
+	
+	public List<TopicJPA> getAllTopics()
+	{
+		topicRepository.findAll().forEach(topicArray::add); 
+		return topicArray;
+	}
+	
+	public Optional<TopicJPA> getTopic (Integer id)
+	{
+		return topicRepository.findById(id);
+	}
+	
+	public void addTopic(TopicJPA topic)
+	{
+		topicRepository.save(topic);
+	}
+	
+	public void updateTopic(TopicJPA topicJPA)
+	{
+		topicRepository.save(topic);
+	}
+	
+	public void deleteTopic(Integer topicId)
+	{
+		topicRepository.deleteById(topicId);
+	}
+
+}

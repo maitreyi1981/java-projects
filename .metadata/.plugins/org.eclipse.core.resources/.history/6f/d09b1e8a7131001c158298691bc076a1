@@ -1,0 +1,14 @@
+package maitreyiartefact.Courses;
+
+import java.util.ArrayList;
+
+import maitreyiartefact.topic.TopicJPA;
+
+public class Course {
+	
+	Integer CourseId;
+	String courseName;
+	String courseDescription;
+	ArrayList<TopicJPA> listOfTopics;
+
+}

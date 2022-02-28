@@ -1,0 +1,9 @@
+package com.maitreyi.movieservice.movieinfoservice.Movie;
+
+public class Movie {
+	
+	int movieId;
+	String movieName;
+	String movieDescription;
+
+}

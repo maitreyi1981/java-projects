@@ -1,0 +1,5 @@
+package com.maitreyi.movieservice.movieinfoservice.Movie;
+
+public class Movie {
+
+}

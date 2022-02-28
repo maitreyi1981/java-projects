@@ -1,0 +1,30 @@
+package com.maitreyi.movie.moviecatalogservice.contollers;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.maitreyi.movie.moviecatalogservice.moviecatalog.*;
+
+@RestController
+@RequestMapping("/catalog")
+public class MovieCatalogController {
+	
+	@RequestMapping ("/{userId}")
+	public List<MovieCatalog> getMovieCatalog(@PathVariable("userId") int  userId)
+	{
+		System.out.println("inside catalog controller");
+		 
+		RestTemplate restTemplate=new RestTemplate();
+		Movie movie=restTemplate.getForObject("http://localhost:8081/movieInfo/1", Movie.class);
+		return new MovieCatalog(1,movie.getMovieId(),movie.getMovieName(),movie.getMovieDescription(),4);
+		
+		//return Collections.singletonList(
+				//new MovieCatalog(1,1, "Transformers"," This is action movie",4));
+	}
+
+}
